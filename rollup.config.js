@@ -11,19 +11,19 @@ import replace from 'rollup-plugin-replace'
 export default {
   input: 'src/entry.ts',
   output: {
-    format: 'esm',
+    format: 'iife',
     dir: 'dist',
-    name: 'index',
+    name: 'JsonSchema',
     sourcemap: true,
     globals: {
       vue: 'Vue',
-      vuelidate: 'vuelidate'
+      //vuelidate: 'vuelidate'
     }
   },
   external: [
     'vue',
-    'vuelidate',
-    'vuelidate/*'
+    // 'vuelidate',
+    // 'vuelidate/*'
   ],
   plugins: [
     progress(),
@@ -39,6 +39,5 @@ export default {
     resolve(),
     commonjs(),
     terser(),
-    visualizer({ sourcemap: true })
   ]
 }
